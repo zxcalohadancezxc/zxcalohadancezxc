@@ -1,0 +1,21 @@
+import pygame
+ 
+ 
+def draw(screen, width1, height1):
+    screen.fill(pygame.Color('black'))
+    pygame.draw.lines(screen, pygame.Color('white'), False, [[0, 0], [width1, height1]], 5)
+    pygame.draw.lines(screen, pygame.Color('white'), False, [[width1, 0], [0, height1]], 5)
+ 
+ 
+if __name__ == '__main__':
+    pygame.init()
+    x = input().split()
+    if len(x) > 2:
+        print('Неправильный формат ввода')
+    width1, height1 = int(x[0]), int(x[1])
+    size = width1, height1
+    screen = pygame.display.set_mode(size)
+    draw(screen, width1, height1)
+    while pygame.event.wait().type != pygame.QUIT:
+        pygame.display.flip()
+    pygame.quit()
